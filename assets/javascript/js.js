@@ -32,14 +32,26 @@ $(document).ready(function () {
                     var rating = results[i].rating;
                     var pOne = $('<p>').text('Rating: ' + rating);
                     vgDiv.append(pOne);
-                    var imgURL = results[i].images.original.url;
+                    var imgURL = results[i].images.original_still.url;
                     var image = $("<img>").attr("src", imgURL);
                     vgDiv.prepend(image);
                     $("#vG").prepend(vgDiv);
                 }
+                console.log(response);
         })        
     });
     renderButtons();
+    $("#vG").on("click", function(){
+        var state = $(this).attr("data-state");
+        if (state === "still"){
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        }
+        else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("date-state", "still");
+        }
+    })
 });
 
 
