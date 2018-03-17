@@ -18,14 +18,14 @@ $(document).ready(function(){
 
     function videoGameGif() {
         var videoGame = $(this).attr("data-name");
-    //     var gueryURL = "https://api.giphy.com/v1/gifs/search?q=" + videoGame + "&api_key=Vflj615zpDEH41Qqr3XVVlGGVq7HSlzZ&limit=10&offset=0&rating=R&lang=en";
-
-    // $.ajax({
-    //     url: queryURl,
-    //     method: "GET"
-    //     })
-    //     .then(function(response){
-    //         console.log(response);
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + videoGame + "&api_key=Vflj615zpDEH41Qqr3XVVlGGVq7HSlzZ&limit=1";
+console.log(queryURL);
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+        })
+        // .then(function(response){
+            
         // var vgDiv = $("<div class='videoGame'>");
         // var rating = response.Rating;
         // var pOne = $('<p>').text('Rating: ' + rating);
@@ -35,9 +35,9 @@ $(document).ready(function(){
         // vgDiv.append(image);
         // })
     
+    // });
+    // console.log(response);
     };
-
-
     $("#addVG").on("click", function(event) {
         event.preventDefault();
         var videoGame = $("#videoGame-input").val().trim();
@@ -46,5 +46,5 @@ $(document).ready(function(){
     });
     $(document).on("click'", ".videoGame-btn", videoGameGif);
     renderButtons();
-});    
 
+});   
