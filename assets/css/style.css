@@ -1,7 +1,6 @@
 body {
-    background-color: cornflowerblue;
+    background-image: url("background.jpg");
 }
-
 #buttons-view{
     padding: 10px;
     margin: 10px;
@@ -10,6 +9,16 @@ body {
 #videoGame-form{
     float: right;
 }
+
+h1{
+    color: white;
+}
+
+p{
+    color: white;
+}
+
+
 
 #vG{
     margin:auto;

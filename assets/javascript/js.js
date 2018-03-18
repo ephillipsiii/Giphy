@@ -1,6 +1,6 @@
 $(document).ready(function () {
     //initial array of video games
-    var videoGames = ["Skyrim", "Dark Souls", "Dark Souls 2", "Dark Souls 3", "Bloodborne", "The Witcher 3", "World of Warcraft"];
+    var videoGames = ["Skyrim", "Dark Souls", "Dark Souls 2", "Dark Souls 3", "Bloodborne", "The Witcher 3", "World of Warcraft", "Deus Ex", "God of War", "Shadow of the Colossus", "Morrowind", "FTL", "Half-Life 2"];
     // rendering the buttons
     function renderButtons() {
         $("#buttons-view").empty();
@@ -32,8 +32,8 @@ $(document).ready(function () {
                     var rating = results[i].rating;
                     var pOne = $('<p>').text('Rating: ' + rating);
                     vgDiv.append(pOne);
-                    var animated = results[i].images.original.url;
-                    var static = results[i].images.original_still.url;
+                    var animated = results[i].images.fixed_height_small.url;
+                    var static = results[i].images.fixed_height_small_still.url;
                     var image = $("<img>");
                     image.attr("src", static);
                     image.addClass("gif");
