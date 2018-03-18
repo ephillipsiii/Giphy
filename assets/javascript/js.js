@@ -32,8 +32,14 @@ $(document).ready(function () {
                     var rating = results[i].rating;
                     var pOne = $('<p>').text('Rating: ' + rating);
                     vgDiv.append(pOne);
-                    var imgURL = results[i].images.original_still.url;
-                    var image = $("<img>").attr("src", imgURL);
+                    var animated = results[i].images.original.url;
+                    var static = results[i].images.original_still.url;
+                    var image = $("<img>");
+                    image.attr("src", static);
+                    image.addClass("gif");
+                    image.attr("data-state", "still");
+                    image.attr("data-still", static);
+                    image.attr("data-animate", animated);
                     vgDiv.prepend(image);
                     $("#vG").prepend(vgDiv);
                 }
@@ -41,7 +47,8 @@ $(document).ready(function () {
         })        
     });
     renderButtons();
-    $("#vG").on("click", function(){
+    $(document).on("click", ".gif", startStop);
+    function startStop() {
         var state = $(this).attr("data-state");
         if (state === "still"){
             $(this).attr("src", $(this).attr("data-animate"));
@@ -51,7 +58,7 @@ $(document).ready(function () {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("date-state", "still");
         }
-    })
+    }
 });
 
 
